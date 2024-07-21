@@ -10,7 +10,7 @@ export const usePostitStore = defineStore("postit", () => {
   const loading = ref(true);
   const showAddingButton = ref(true);
 
-  const url = "https://post-it.epi-bluelock.bj";
+  const url = "https://post-it.epi-bluelock.bj/notes";
   let limit = 4;
   
   const completed = ref(false);
