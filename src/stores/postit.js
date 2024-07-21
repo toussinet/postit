@@ -170,7 +170,7 @@ export const usePostitStore = defineStore("postit", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title: post_edit_title_input.value,
-        content: post_edit_content_input.value,
+        content: [post_edit_content_input.value],
       }),
     };
     fetch(`${url}${id}`, requestOptions).then(
@@ -226,7 +226,7 @@ export const usePostitStore = defineStore("postit", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title: createPostTitleInput.value,
-          content: createPostContentInput.value,
+          content: [createPostContentInput.value],
         }),
       };
       fetch(url, requestOptions)
