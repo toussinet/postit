@@ -10,7 +10,7 @@ export const usePostitStore = defineStore("postit", () => {
   const loading = ref(true);
   const showAddingButton = ref(true);
 
-  const url = "http://62.72.5.95:1999/notes";
+  const url = "https://post-it.epi-bluelock.bj/";
   let limit = 4;
   
   const completed = ref(false);
@@ -109,7 +109,7 @@ export const usePostitStore = defineStore("postit", () => {
 
   function deletePostit(postItId) {
     if (confirm("Are you sure, you want to delete this postIt?")) {
-      fetch(`http://62.72.5.95:1999/notes/${postItId}`, {
+      fetch(`${url}${postItId}`, {
         method: "DELETE",
         headers: {
           accept: "application/json",
@@ -173,7 +173,7 @@ export const usePostitStore = defineStore("postit", () => {
         content: [post_edit_content_input.value],
       }),
     };
-    fetch(`http://62.72.5.95:1999/notes/${id}`, requestOptions).then(
+    fetch(`${url}${id}`, requestOptions).then(
       (response) => {
         if (response.ok) {
           alert("Postit Updated successfully");
@@ -229,7 +229,7 @@ export const usePostitStore = defineStore("postit", () => {
           content: [createPostContentInput.value],
         }),
       };
-      fetch("http://62.72.5.95:1999/notes", requestOptions)
+      fetch(url, requestOptions)
         .then((response) => {
           if (response.ok) {
             alert("Postit added successfully");
